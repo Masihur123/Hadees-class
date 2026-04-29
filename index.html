@@ -1,0 +1,290 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@300;400;500;600&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+/* Payment question text */
+.payment-label {
+  font-size: 20px;
+  font-weight: 600;
+  color: #2c3e50;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Options container */
+.yn-group {
+  display: flex;
+  gap: 20px; /* 👈 main spacing between Yes & No */
+  flex-wrap: wrap;
+}
+
+/* Individual option box */
+.yn-opt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.yn-opt:hover {
+  border-color: #1a7a42;
+  background: #f1f9f4;
+}
+
+/* Selected effect */
+.yn-opt:has(input:checked) {
+  background: rgba(26,122,66,0.08);
+  border-color: #1a7a42;
+  color: #1a7a42;
+  font-weight: 600;
+}
+
+/* Radio button size */
+.yn-opt input {
+  accent-color: #1a7a42;
+  width: 16px;
+  height: 16px;
+}
+.page { font-family: 'Nunito', sans-serif; background: var(--color-background-tertiary); min-height: 100vh; padding: 2rem 1rem 3rem; }
+
+.hero { max-width: 640px; margin: 0 auto 2rem; text-align: center; padding: 2.5rem 2rem; background: linear-gradient(145deg, #1a3a2a 0%, #0f2318 100%); border-radius: 16px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+.hero-badge { display: inline-block; background: rgba(212,175,55,0.15); border: 1px solid rgba(212,175,55,0.4); color: #d4af37; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 14px; border-radius: 20px; margin-bottom: 1rem; }
+.hero-title { font-family: 'Lora', serif; font-size: 22px; font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 6px; }
+.hero-arabic { font-size: 13px; color: rgba(255,255,255,0.5); font-style: italic; margin-bottom: 1.2rem; }
+.hero-sheikh { font-size: 14px; color: #d4af37; font-weight: 600; margin-bottom: 1.5rem; }
+.hero-divider { width: 40px; height: 1px; background: rgba(212,175,55,0.4); margin: 0 auto 1.5rem; }
+
+.topics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; text-align: left; }
+.topic-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px 8px; background: rgba(255,255,255,0.04); border-radius: 6px; }
+.topic-num { font-size: 10px; font-weight: 600; color: #d4af37; min-width: 16px; margin-top: 2px; }
+.topic-text { font-size: 11px; color: rgba(255,255,255,0.75); line-height: 1.4; }
+
+.form-wrap { max-width: 640px; margin: 0 auto; }
+.form-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 16px; padding: 2rem; }
+.form-section-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-tertiary); margin-bottom: 1.25rem; padding-bottom: 8px; border-bottom: 0.5px solid var(--color-border-tertiary); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.field { margin-bottom: 1.1rem; }
+.label { display: block; font-size: 12px; font-weight: 600; color: var(--color-text-secondary); margin-bottom: 5px; }
+.req { color: #c0392b; margin-left: 2px; }
+input[type=text], input[type=email], input[type=tel], input[type=date], select, textarea {
+  width: 100%; padding: 9px 12px; font-size: 14px; font-family: 'Nunito', sans-serif;
+  background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary);
+  border-radius: 8px; color: var(--color-text-primary); outline: none; transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus { border-color: #1a7a42; box-shadow: 0 0 0 3px rgba(26,122,66,0.1); }
+textarea { min-height: 80px; resize: vertical; }
+select { cursor: pointer; }
+
+.radio-group, .yn-group { 
+  display: flex; 
+  gap: 18px;   /* 👈 gap increase kar diya */
+  flex-wrap: wrap; 
+}
+.radio-opt, .yn-opt { display: flex; align-items: center; gap: 7px; padding: 8px 14px; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: 8px; cursor: pointer; font-size: 13px; color: var(--color-text-primary); transition: all 0.15s; user-select: none; }
+.radio-opt:has(input:checked), .yn-opt:has(input:checked) { background: rgba(26,122,66,0.08); border-color: #1a7a42; color: #1a7a42; font-weight: 600; }
+.radio-opt input, .yn-opt input { accent-color: #1a7a42; width: 14px; height: 14px; }
+
+.sep { height: 0.5px; background: var(--color-border-tertiary); margin: 1.5rem 0; }
+
+.submit-btn { width: 100%; padding: 13px; font-size: 15px; font-weight: 600; font-family: 'Nunito', sans-serif; background: #1a7a42; color: #fff; border: none; border-radius: 10px; cursor: pointer; transition: background 0.15s, transform 0.1s; margin-top: 0.5rem; letter-spacing: 0.02em; }
+.submit-btn:hover { background: #145f33; }
+.submit-btn:active { transform: scale(0.98); }
+.submit-btn:disabled { background: var(--color-border-tertiary); cursor: not-allowed; }
+
+.error-msg { display: none; margin-top: 1rem; padding: 10px 14px; border-radius: 8px; font-size: 13px; background: var(--color-background-danger); color: var(--color-text-danger); border: 0.5px solid var(--color-border-danger); }
+.error-msg.show { display: block; }
+
+.thankyou { display: none; max-width: 640px; margin: 4rem auto; text-align: center; padding: 3rem 2rem; background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 16px; }
+.ty-icon { font-size: 48px; margin-bottom: 1rem; }
+.ty-title { font-family: 'Lora', serif; font-size: 24px; color: #1a7a42; font-weight: 600; margin-bottom: 0.75rem; }
+.ty-sub { font-size: 14px; color: var(--color-text-secondary); line-height: 1.7; }
+.hero-contact {
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  margin-top: 10px;
+  line-height: 1.6;
+}
+</style>
+
+<form >
+
+<div class="page">
+
+  <div class="hero">
+    <div class="hero-badge">10 Days Ilmi Program</div>
+    <div class="hero-title">10 Days ILMI Dars</div>
+    <div class="hero-arabic">by</div>
+    <div class="hero-sheikh">Sheikh Ziyaur Rehman (Snabili)</div>
+    <div class="hero-divider"></div>
+    <div class="hero-contact">
+  📞 For Queries / Registration:
+  <br> +91 9711370138
+  <br> +91 9953494849
+</div>
+    <div class="topics-grid">
+  <div class="topic-item"><span class="topic-num">1.</span><span class="topic-text">Usool (Qur'an, Hadith aur Fehm-e-Sahaba)</span></div>
+  <div class="topic-item"><span class="topic-num">2.</span><span class="topic-text">Tawheed-e-Ibadat</span></div>
+  <div class="topic-item"><span class="topic-num">3.</span><span class="topic-text">Tawheed-e-Asma wa Sifaat</span></div>
+  <div class="topic-item"><span class="topic-num">4.</span><span class="topic-text">Types of Shirk</span></div>
+  <div class="topic-item"><span class="topic-num">5.</span><span class="topic-text">Sunnat ki Ahmiyat</span></div>
+  <div class="topic-item"><span class="topic-num">6.</span><span class="topic-text">Bid'at</span></div>
+  <div class="topic-item"><span class="topic-num">7.</span><span class="topic-text">Ma'ashre ki Islah</span></div>
+  <div class="topic-item"><span class="topic-num">8.</span><span class="topic-text">Sects ke paida hone ke asbab</span></div>
+  <div class="topic-item"><span class="topic-num">9.</span><span class="topic-text">'Ilm seekhne ke fayde</span></div>
+  <div class="topic-item"><span class="topic-num">10.</span><span class="topic-text">Adab & Nikah aur Ma'ashre ki kharabiyan</span></div>
+</div>
+  </div>
+
+  <div class="form-wrap" id="form-section">
+    <div class="form-card">
+      <div class="form-section-title">Personal Information</div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="label">Full Name <span class="req">*</span></label>
+          <input type="text" name="name" id="f-name" placeholder="Apna poora naam" required />
+        </div>
+        <div class="field">
+          <label class="label">Phone Number <span class="req">*</span></label>
+          <input type="tel" name="phone" id="f-phone" placeholder="+91 98765 43210" required />
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Email Address <span class="req">*</span></label>
+        <input type="email" name="email" id="f-email" placeholder="aapka@email.com" required />
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label class="label">City / State <span class="req">*</span></label>
+          <input type="text" name="city" id="f-city" placeholder="Jaise: Delhi, UP" required />
+        </div>
+        <div class="field">
+          <label class="label">Gender <span class="req">*</span></label>
+          <div class="radio-group">
+            <label><input type="radio" name="gender" value="Male" required /> Male</label>
+            <label><input type="radio" name="gender" value="Female" required /> Female</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+      <div class="form-section-title">Professional Details</div>
+
+      <div class="field">
+        <label class="label">Occupation <span class="req">*</span></label>
+        <div class="radio-group">
+          <label><input type="radio" name="occupation" value="Student" required /> Student</label>
+          <label><input type="radio" name="occupation" value="Working Professional" required /> Working Professional</label>
+        </div>
+      </div>
+
+      <div class="sep"></div>
+      <div class="form-section-title">Course & Payment</div>
+
+      <div class="field">
+        <label class="label payment-label" style="font-size:17px; font-weight:700; color:#020905;">
+Yeh course ek paid course hai — kya aap registration fee pay karna chahte hain?
+<span class="req">*</span>
+</label>
+</label>
+<div class="yn-group">
+  <label><input type="radio" name="payment" value="Yes" required /> Yes, Pay Karunga/Karungi</label>
+
+
+
+  <label><input type="radio" name="payment" value="No" required /> No, Abhi Nahi</label>
+</div>
+        
+      </div>
+
+      <div class="field">
+        <label class="label">Message / Query</label>
+        <textarea name="message" id="f-message" placeholder="Koi sawaal ya paigham..."></textarea>
+      </div>
+
+   <button type="button" onclick="submitReg()" id="f-submit" class="submit-btn">Complete Registration →</button>
+
+    </div>
+  </div>
+
+</div>
+
+</form>
+<div id="f-error" class="error-msg"></div>
+
+<div id="thankyou-section" class="thankyou">
+  <div class="ty-icon">✅</div>
+  <div class="ty-title">Registration Complete 
+                        JazakAllahu Khayran!
+  </div>
+  <div class="ty-sub">Aapki registration successfully submit ho gayi.
+    In sha Allah aapko jald hi confirm kiya jayega.
+    
+    May Allah grant us beneficial knowledge. Ameen.</div>
+</div>
+<script>
+function submitReg() {
+ 
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const city = document.getElementById('f-city').value.trim();
+  const gender = document.querySelector('input[name="gender"]:checked');
+  const occupation = document.querySelector('input[name="occupation"]:checked');
+const pay = document.querySelector('input[name="payment"]:checked');
+  const message = document.getElementById('f-message').value.trim();
+  const err = document.getElementById('f-error');
+  const btn = document.getElementById('f-submit');
+
+  err.className = 'error-msg';
+
+  if (!name || !phone || !email || !city || !gender || !occupation || !pay) {
+    err.textContent = 'Kripya saare required fields fill karein.';
+    err.className = 'error-msg show';
+    return;
+  }
+  const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRx.test(email)) {
+    err.textContent = 'Sahi email address darj karein.';
+    err.className = 'error-msg show';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzOiMmzDKJ1mHldL7IhAyReLLW7EtoFHdWvZlGeIPCkcr_Oy1rA29BLLJHyStE50rZI/exec';
+
+  fetch(SHEET_URL, {
+    method: 'POST', mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name, phone, email, city,
+      gender: gender.value,
+      occupation: occupation.value,
+      fee_payment: pay.value,
+      message,
+      timestamp: new Date().toLocaleString('en-IN')
+    })
+  })
+  .then(() => showThankyou())
+  .catch(() => showThankyou());
+}
+
+function showThankyou() {
+  document.getElementById('form-section').style.display = 'none';
+  document.querySelector('.hero').style.display = 'none';
+  document.getElementById('thankyou-section').style.display = 'block';
+}
+</script>
